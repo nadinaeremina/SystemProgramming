@@ -1,0 +1,18 @@
+﻿<Window x:Class="Data_user.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Data_user"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock FontSize="25" HorizontalAlignment="Center">Добро пожаловать!</TextBlock>
+                <TextBlock FontSize="25"> Предлагаем записать данные в файл!</TextBlock>
+                <Button FontSize="28" FontFamily="Arial Black" Width="159" Click="Button_Click" >Начать!</Button>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -29,14 +29,17 @@ namespace Data_user
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // метод передаем в поток
             var thread = new Thread(WriteFile);
             thread.Start();
+            MessageBox.Show("Готово!");
         }
 
         // эта операция будет выполняться в другом потоке и при этом не будет блокировать основной поток визуального представления приложения
         public void WriteFile()
         {
-            using var filestream = new FileStream(@"C:\test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            // 'FileMode' - каким образом открыть // 'FileAccess' - определяет константы для доступа к файлу
+            using var filestream = new FileStream(@"C:\Users\Администратор\test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             
             for (int i = 0; i < 1_000_000_000; i++)
             {

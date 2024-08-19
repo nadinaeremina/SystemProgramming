@@ -28,6 +28,7 @@ namespace Threads
             var myThread1 = new Thread(Print); // передаем экземпляр делегата
             var myThread2 = new Thread(new ThreadStart(Print)); // создаем экземпляр делегата и передаем туда ф-цию
             var myThread3 = new Thread(() => Console.WriteLine("Hello, Threads")); // передаем анонимную ф-цию - лямбду
+            // 'ThreadStart' - это делегат
 
             //myThread1.Start();
             //myThread2.Start();
@@ -42,6 +43,7 @@ namespace Threads
                 Value2 = 2,
             };
 
+            // запускаем поток
             myThread4.Start(param);
 
             for (int i = 0; i < 100; i++)
@@ -65,7 +67,7 @@ namespace Threads
             for (int i = 0; i < 100; i++)
             {
                 Console.WriteLine("Я выполняюсь во втором потоке");
-                Thread.Sleep(1000);
+                Thread.Sleep(1000); // заглушка // замедление программы
             }
         }
 
@@ -78,6 +80,7 @@ namespace Threads
             // идентично 
             //if (obj is int)
             //    int number1 = (int)obj;
+            // далее идет безопасная проверка
             if (obj is int number) // если обьект типа 'int' - то делаем преобразование в тип 'int' и даем ему название
             {
                 for (int i = 0; i < number; i++)

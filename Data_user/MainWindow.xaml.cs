@@ -23,8 +23,10 @@ namespace Data_user
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window = new Window1();
-            window.ShowDialog();
+            var factorialWindow = new Window1();
+            factorialWindow.Show();
+
+            Close();
         }
     }
 }

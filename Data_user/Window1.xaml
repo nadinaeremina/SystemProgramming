@@ -17,17 +17,16 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txt_name" Grid.Row="1" FontSize="20">Имя:</TextBlock>
-        <TextBlock x:Name="txt_last_name" Grid.Row="2" FontSize="20">Фамилия:</TextBlock>
-        <TextBlock x:Name="txt_middle_name" Grid.Row="3" FontSize="20">Отчество:</TextBlock>
-        <TextBlock x:Name="txt_email" Grid.Row="4" FontSize="20">E-mail:</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1"></TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="1"></TextBlock>
-        <Button FontSize="28" Grid.Row="5" Margin="109,17,129,0" Height="43" VerticalAlignment="Top" Click="Button_Click_1">Назад</Button>
-        <Button FontSize="28" Grid.Row="5" Margin="109,17,129,0" Height="43" VerticalAlignment="Top" Grid.Column="1" Click="Button_Click">Записать</Button>
+        <TextBlock FontSize="20" Margin="12,16,0,25">Имя:</TextBlock>
+        <TextBlock Grid.Row="1" FontSize="20" Margin="11,7,2,27">Фамилия:</TextBlock>
+        <TextBlock Grid.Row="2" FontSize="20" Margin="11,7,3,18">Отчество:</TextBlock>
+        <TextBlock Grid.Row="3" FontSize="20" Margin="16,7,0,52">E-mail:</TextBlock>
+        <TextBox x:Name="txt_name" Text="{Binding Name}" Grid.Column="1" Margin="49,17,115,37"/>
+        <TextBox x:Name="txt_last_name" Text="{Binding Surname}" Grid.Row="1" Grid.Column="1" Margin="49,14,115,39"/>
+        <TextBox x:Name="txt_middle_name" Text="{Binding Patronymic}" Grid.Row="2" Grid.Column="1" Margin="51,11,113,39"/>
+        <TextBox x:Name="txt_email" Grid.Row="3" Text="{Binding Email}" Grid.Column="1" Margin="55,6,109,41"/>
+        <Button FontSize="25" Grid.Row="5" Margin="142,14,150,0" Height="46" VerticalAlignment="Top" Click="Button_Click_1">Назад</Button>
+        <Button FontSize="25" Grid.Row="5" Margin="142,14,128,0" Height="46" VerticalAlignment="Top" Grid.Column="1" Click="Button_Click">Записать</Button>
     </Grid>
 </Window>

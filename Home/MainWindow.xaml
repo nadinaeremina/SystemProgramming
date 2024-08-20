@@ -1,0 +1,90 @@
+﻿<Window x:Class="Home.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Home"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="58"></RowDefinition>
+                <RowDefinition Height="58"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid>
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                ItemsSource="{Binding Users}"
+                SelectedItem="{Binding SelectedUserReply}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        MinWidth="200"
+                        Binding="{Binding Path=Name}"
+                        Header="Имя" />
+                    <DataGridTextColumn
+                        MaxWidth="200"
+                        Binding="{Binding Path=Surname}"
+                        Header="Фамилия"/>
+                    <DataGridTextColumn
+                        MaxWidth="200"
+                        Binding="{Binding Path=Email}"
+                        Header="E-mail"/>
+                    <DataGridTemplateColumn Header="Редактирование">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button
+                                        Width="100"
+                                        HorizontalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        Command="{Binding Path=DataContext.NavigateToEditUserCommand, RelativeSource={RelativeSource}"
+                                        Style="{StaticResource Button}">
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            Text="Редактировать"
+                                            TextAlignment="Center"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Удаление">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button
+                                        Width="100"
+                                        HorizontalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        Command="{Binding Path=DataContext.DeleteUserCommand, RelativeSource={RelativeSource}}"
+                                        Style="{StaticResource Button}">
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            Text="Удалить"
+                                            TextAlignment="Center" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock
+                Width="450"
+                Height="30"
+                FontSize="15"
+                Foreground="Red"
+                Text="{Binding LoadingError}"
+                TextAlignment="Center"
+                TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>

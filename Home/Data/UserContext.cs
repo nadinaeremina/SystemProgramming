@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assync
+namespace Home.Data
 {
-    internal class Program
+    public class UserContext
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
